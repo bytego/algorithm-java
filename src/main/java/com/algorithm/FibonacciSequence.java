@@ -11,7 +11,7 @@ public class FibonacciSequence {
 
     public static void main(String[] args) {
 
-        System.out.println(fn(30));
+        System.out.println(fn(20));
     }
 
     /**
@@ -26,10 +26,6 @@ public class FibonacciSequence {
             return 1;
         }
 
-//        if(isOverFlow(n)){
-//            return 0;
-//        }
-
         int result = fn(n-1) + fn(n - 2);
 
         System.out.println(result);
@@ -42,10 +38,10 @@ public class FibonacciSequence {
      * @param n
      * @return
      */
-    private static boolean isOverFlow(int n){
-
-        return fn(n-1) + fn(n - 2) > Integer.MAX_VALUE;
-    }
+//    private static boolean isOverFlow(int n){
+//
+//        return fn(n- 1) + fn( n-2 ) > 100;
+//    }
 
 
 }
