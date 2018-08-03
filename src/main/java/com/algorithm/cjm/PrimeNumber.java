@@ -1,4 +1,4 @@
-package com.algorithm;
+package com.algorithm.cjm;
 
 /**
  * 求第n个质数的值

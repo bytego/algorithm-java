@@ -1,4 +1,4 @@
-package com.algorithm;
+package com.algorithm.cjm;
 
 /**
  * 斐波那契数列

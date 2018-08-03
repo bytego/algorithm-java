@@ -1,4 +1,4 @@
-package com.algorithm.array;
+package com.algorithm.cjm.array;
 
 public class Solution {
 

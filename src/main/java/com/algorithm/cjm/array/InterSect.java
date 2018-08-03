@@ -1,4 +1,4 @@
-package com.algorithm.array;
+package com.algorithm.cjm.array;
 
 import java.util.*;
 
@@ -12,7 +12,7 @@ public class InterSect {
         int[] nums1 = {1, 2, 2, 2, 1, 0};
         int[] nums2 = {2, 2, 0, 343, 1, 0};
 
-        Integer[] rs = intersect(nums1 , nums2);
+        int[] rs = intersect(nums1 , nums2);
 
         for (int i = 0 ; i < rs.length; i++){
             System.out.println(rs[i]);
@@ -26,7 +26,7 @@ public class InterSect {
      * @param nums2
      * @return
      */
-    public static Integer[] intersect(int[] nums1, int[] nums2) {
+    public static int[] intersect(int[] nums1, int[] nums2) {
 
         Map<Integer, Integer> map = new HashMap<>();
 
@@ -51,10 +51,13 @@ public class InterSect {
             }
         }
 
-        Integer[] ints = new Integer[res.size()];
+        int[] ints = new int[res.size()];
 
-        return res.toArray(ints);
+        for(int i = 0 ; i < res.size() ; i++){
+            ints[i] = res.get(i);
+        }
 
+        return ints;
     }
 
 }

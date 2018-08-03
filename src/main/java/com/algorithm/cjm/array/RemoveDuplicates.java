@@ -1,4 +1,4 @@
-package com.algorithm.array;
+package com.algorithm.cjm.array;
 
 /**
  * 给定一个排序数组，你需要在原地删除重复出现的元素，
