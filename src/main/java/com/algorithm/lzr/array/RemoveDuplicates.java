@@ -10,7 +10,7 @@ package com.algorithm.lzr.array;
 public class RemoveDuplicates {
 
     public static void main(String[] args) {
-        int[] array = new int[]{0, 0, 1, 1, 1, 2, 2, 3, 3, 4};
+        int[] array = {0, 0, 1, 1, 1, 2, 2, 3, 3, 4};
         int length = removeDuplicates(array);
         System.out.print(length + "\n");
         for (int i = 0; i < array.length; i++) {
