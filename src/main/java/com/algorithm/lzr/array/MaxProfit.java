@@ -9,7 +9,7 @@ package com.algorithm.lzr.array;
 public class MaxProfit {
 
     public static void main(String[] args) {
-        int[] array = new int[]{2, 1, 2, 1, 0, 0, 1};
+        int[] array = {2, 1, 2, 1, 0, 0, 1};
         int price = maxProfit(array);
         System.out.print(price);
     }
