@@ -1,12 +1,13 @@
 package com.algorithm.lzr.array;
 
 /**
- * n × n 的二维矩阵 旋转图像
+ * 给定一个n×n的二维矩阵表示一个图像
+ * 将图像顺时针旋转90度
  *
  * @author lzr
  * @date 2018/8/5
  */
-public class Rotate {
+public class RotateMatrix {
     public static void main(String[] args) {
         /**
          * 5,  1, 9,11 (1,1)(1,2)(1,3)(1,4)
