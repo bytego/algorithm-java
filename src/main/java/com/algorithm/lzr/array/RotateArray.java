@@ -10,7 +10,7 @@ public class RotateArray {
 
     public static void main(String[] args) {
         //int[] array1 = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15};
-        int[] array1 = {1, 2, 3, 4};
+        int[] array1 = {1, 2, 3, 4,5,6};
         rotateArray1(array1, 2);
         for (int i = 0; i < array1.length; i++) {
             System.out.println(array1[i] + ",");
@@ -35,52 +35,57 @@ public class RotateArray {
         //数组长度
         int length = array.length;
         //当位移量k为0,或者是length的倍数时,相当于没操作,不变化
-        if (k % length != 0) {
-            //位移量k 假如k>length,那么k=k-length
-            k = k % length;
-            //m为实际需要移动次数  假如是length为6,k=4 实际只需要移动m=2
-            int m = k < length / 2 ? k : length - k;
-            //暂存变量
-            int temp = 0;
-            //如果length%m==0代表 代表m为length的公约数
-            if (length % m != 0) {
-                for (int j = 0; j < length; ) {
-                    if (j == 0) {
-                        temp = array[length - k];
+        if (k % length == 0){
+            return;
+        }
+        //位移量k 假如k>length,那么k=k-length
+        k = k % length;
+        //m为实际需要移动次数  假如是length为6,k=4 实际只需要移动m=2
+        int m = k < length / 2 ? k : length - k;
+        //暂存变量
+        int temp = 0;
+        //如果length%m==0代表 代表m为length的公约数
+        if (length % m != 0) {
+            for (int j = 0; j < length; ) {
+                if (j == 0) {
+                    temp = array[length - k];
+                }
+                int current = array[j];
+                array[j] = temp;
+                temp = current;
+                if (j + k > length) {
+                    j = (j + k) % length;
+                } else {
+                    j += k;
+                }
+            }
+        } else {
+            for (int i = 0; i < m; i++) {
+                for (int j = i; j < length; ) {
+                    if (j == i) {
+                        if (k - i > 0) {
+                            temp = array[length - (k - i)];
+                        }
                     }
                     int current = array[j];
                     array[j] = temp;
                     temp = current;
+                    //由于公约数的存在可能会是数组 i 代表起始位置 j代表运行循环变量 length-k代表要放在i的值
+                    //例如{1,2,3,4,5,6}的长度length=6 假设k=2; 当i=0,j=6-2+0=4需要结束循环 循环时执行array[0],array[2],array[4],即{1,3,5}变为{5,1,3}
+                    //例如{1,2,3,4,5,6}的长度length=6 假设k=2; 当i=1,j=6-2+1=5需要结束循环 循环时执行array[1],array[3],array[5],即{2,4,6}变为{6,2,4}
+                    //array变成{5,6,1,2,3,4}
+                    if (j == length - k + i) {
+                        break;
+                    }
                     if (j + k > length) {
                         j = (j + k) % length;
                     } else {
                         j += k;
                     }
                 }
-            } else {
-                for (int i = 0; i < m; i++) {
-                    for (int j = i; j < length; ) {
-                        if (j == i) {
-                            if (k - i > 0) {
-                                temp = array[length - (k - i)];
-                            }
-                        }
-                        int current = array[j];
-                        array[j] = temp;
-                        temp = current;
-                        //由于公约数的存在可能会是数组 i 代表起始位置 j代表运行循环变量 length-k代表要放在i的值
-                        if (j + i == length - k) {
-                            break;
-                        }
-                        if (j + k > length) {
-                            j = (j + k) % length;
-                        } else {
-                            j += k;
-                        }
-                    }
-                }
             }
         }
+
     }
 
     /**
@@ -100,8 +105,11 @@ public class RotateArray {
             return;
         }
         k = k % array.length;
+        //旋转前半段
         reverseArray(array, 0, array.length - k - 1);
+        //旋转后半段
         reverseArray(array, array.length - k, array.length - 1);
+        //整体旋转
         reverseArray(array, 0, array.length - 1);
     }
 
